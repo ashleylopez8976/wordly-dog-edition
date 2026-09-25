@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wordly Dictionary</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+  <h1>Wordly</h1>
+  <p class="edition">Dog Edition</p>
+  <p>Search for a dog breed to see its photo.</p>
+</header>
+
+  <main>
+    <form id="search-form">
+      <label for="word-input">Enter a Breed</label>
+      <input
+        id="word-input"
+        name="word"
+        type="search"
+        placeholder="For example, beagle"
+        required
+      >
+      <button type="submit">Search</button>
+    </form>
+
+    <p id="message" role="status" aria-live="polite"></p>
+
+    <section id="results" aria-label="Dog breed result" hidden>
+  <h2 id="result-breed"></h2>
+  <img id="dog-photo" alt="">
+  <button id="save-breed" type="button">Save breed</button>
+</section>
+
+    <section aria-labelledby="saved-heading">
+      <h2 id="saved-heading">Saved Breeds</h2>
+      <ul id="saved-words"></ul>
+    </section>
+  </main>
+</body>
+</html>
