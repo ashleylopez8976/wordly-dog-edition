@@ -33,9 +33,16 @@ searchForm.addEventListener("submit", async function (event) {
       breed.charAt(0).toUpperCase() + breed.slice(1);
     dogPhoto.src = data.message;
     dogPhoto.alt = `A ${breed} dog`;
+    results.classList.toggle("saved", savedBreeds.includes(breed));
+    saveBreedButton.textContent = savedBreeds.includes(breed)
+  ? "Unsave breed"
+  : "Save breed";
 
     message.textContent = "";
     results.hidden = false;
+
+    wordInput.value = "";
+    wordInput.focus();
   } catch (error) {
     message.textContent =
       error.name === "TimeoutError"
@@ -54,26 +61,53 @@ function showSavedBreeds() {
 
   for (const breed of savedBreeds) {
     const listItem = document.createElement("li");
-    listItem.textContent = breed.charAt(0).toUpperCase() + breed.slice(1);
+    const breedButton = document.createElement("button");
+
+    breedButton.type = "button";
+    breedButton.className = "saved-breed-link";
+    breedButton.textContent =
+      breed.charAt(0).toUpperCase() + breed.slice(1);
+
+    breedButton.addEventListener("click", function () {
+      wordInput.value = breed;
+      searchForm.requestSubmit();
+    });
+
+    listItem.append(breedButton);
     savedBreedsList.append(listItem);
   }
 }
 
-saveBreedButton.addEventListener("click", function () {
-  const breed = resultBreed.textContent.toLowerCase();
-
-  if (savedBreeds.includes(breed)) {
-    message.textContent = `${resultBreed.textContent} is already saved.`;
-    return;
+  for (const breed of savedBreeds) {
+    const listItem = document.createElement("li");
+    listItem.textContent = breed.charAt(0).toUpperCase() + breed.slice(1);
+    savedBreedsList.append(listItem);
   }
 
-  savedBreeds.push(breed);
+saveBreedButton.addEventListener("click", function () {
+  const breed = resultBreed.textContent.toLowerCase();
+  const isSaved = savedBreeds.includes(breed);
+
+  if (isSaved) {
+    savedBreeds = savedBreeds.filter(function (savedBreed) {
+      return savedBreed !== breed;
+    });
+
+    results.classList.remove("saved");
+    saveBreedButton.textContent = "Save breed";
+    message.textContent =
+      `${resultBreed.textContent} removed from Saved Breeds.`;
+  } else {
+    savedBreeds.push(breed);
+
+    results.classList.add("saved");
+    saveBreedButton.textContent = "Unsave breed";
+    message.textContent =
+      `${resultBreed.textContent} added to Saved Breeds.`;
+  }
+
   localStorage.setItem("savedBreeds", JSON.stringify(savedBreeds));
   showSavedBreeds();
-
-  results.classList.add("saved");
-  saveBreedButton.textContent = "Saved!";
-  message.textContent = `${resultBreed.textContent} added to Saved Breeds.`;
 });
 
 showSavedBreeds();

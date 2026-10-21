@@ -118,3 +118,120 @@ input:focus-visible {
   border-color: #344f46;
   background-color: #f0f6f2;
 }
+
+.title-frame {
+  width: fit-content;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto 24px;
+  padding: 24px 48px;
+  border: 4px double #ad8950;
+  border-radius: 16px;
+  background: #fffdf8;
+  box-shadow: 0 6px 18px rgba(52, 80, 71, 0.1);
+  text-align: center;
+}
+
+.title-frame h1 {
+  margin: 0;
+  color: #345047;
+  letter-spacing: 2px;
+}
+
+.title-frame .edition {
+  margin: 8px 0 12px;
+  color: #345047;
+}
+
+.paw-accent {
+  display: block;
+  font-size: 24px;
+}
+
+@media (max-width: 480px) {
+  .title-frame {
+    padding: 20px 28px;
+  }
+}
+
+.paw-accent {
+  transform-origin: bottom center;
+  animation: paw-wave 1.4s ease-in-out infinite;
+}
+
+@keyframes paw-wave {
+  0%, 100% {
+    transform: rotate(-18deg);
+  }
+
+  50% {
+    transform: rotate(18deg);
+  }
+}
+
+/* Respect visitors who prefer reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  .paw-accent {
+    animation: none;
+  }
+}
+
+.tagline {
+  font-family: "Segoe Print", "Bradley Hand", cursive;
+  font-size: 20px;
+  font-weight: 400;
+  color: #345047;
+  line-height: 1.6;
+}
+
+#saved-heading,
+#saved-words {
+  font-family: "Sabon Next LT", "Palatino Linotype", Georgia, serif;
+}
+
+#saved-words {
+  list-style: none;
+  padding-left: 0;
+}
+
+#saved-words li {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+#saved-words li::before {
+  content: "";
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23333333'%3E%3Cellipse cx='5' cy='9' rx='2.5' ry='3.5'/%3E%3Cellipse cx='10' cy='5' rx='2.5' ry='3.5'/%3E%3Cellipse cx='16' cy='5' rx='2.5' ry='3.5'/%3E%3Cellipse cx='21' cy='9' rx='2.5' ry='3.5'/%3E%3Cpath d='M12 11c-3 0-4 3-6 5-2 3 0 6 3 5 2-1 4-1 6 0 3 1 5-2 3-5-2-2-3-5-6-5Z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+#saved-words .saved-breed-link {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  width: auto;
+  min-height: 0;
+  font: inherit;
+  color: #333333;
+  text-align: left;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+
+#saved-words .saved-breed-link:hover {
+  color: #345047;
+}
+
+#saved-words .saved-breed-link:focus-visible {
+  outline: 2px solid #345047;
+  outline-offset: 4px;
+}
