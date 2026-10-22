@@ -8,14 +8,15 @@
   <script src="script.js" defer></script>
 </head>
 <body>
-  <header>
+  <header class="hero">
   <div class="title-frame">
     <h1>Wordly</h1>
     <p class="edition">Dog Edition</p>
     <span class="paw-accent" aria-hidden="true">🐾</span>
   </div>
-  <p class="tagline">Search for a dog breed to see its photo!</p>
 </header>
+
+<p class="tagline">Search for a dog breed to see its photo!</p>
 
   <main>
     <form id="search-form">
@@ -36,6 +37,11 @@
   <h2 id="result-breed"></h2>
   <img id="dog-photo" alt="">
   <button id="save-breed" type="button">Save breed</button>
+</section>
+
+<section class="popular-section" aria-labelledby="popular-heading">
+  <h2 id="popular-heading">Popular Dog Breeds</h2>
+  <ul id="popular-breeds"></ul>
 </section>
 
     <section aria-labelledby="saved-heading">

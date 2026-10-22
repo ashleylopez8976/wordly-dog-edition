@@ -111,3 +111,34 @@ saveBreedButton.addEventListener("click", function () {
 });
 
 showSavedBreeds();
+
+const popularBreedsList = document.querySelector("#popular-breeds");
+
+const popularBreeds = [
+  "labrador",
+  "poodle",
+  "beagle",
+  "bulldog",
+  "boxer",
+  "husky",
+  "dachshund",
+  "pug"
+];
+
+for (const breed of popularBreeds) {
+  const listItem = document.createElement("li");
+  const breedButton = document.createElement("button");
+
+  breedButton.type = "button";
+  breedButton.className = "popular-breed-link";
+  breedButton.textContent =
+    breed.charAt(0).toUpperCase() + breed.slice(1);
+
+  breedButton.addEventListener("click", function () {
+    wordInput.value = breed;
+    searchForm.requestSubmit();
+  });
+
+  listItem.append(breedButton);
+  popularBreedsList.append(listItem);
+}

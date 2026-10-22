@@ -235,3 +235,155 @@ input:focus-visible {
   outline: 2px solid #345047;
   outline-offset: 4px;
 }
+
+#popular-heading,
+#popular-breeds {
+  font-family: "Sabon Next LT", "Palatino Linotype", Georgia, serif;
+}
+
+#popular-breeds {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+}
+
+#popular-breeds .popular-breed-link {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  width: auto;
+  min-height: 0;
+  font: inherit;
+  font-size: 20px;
+  color: #333333;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+
+#popular-breeds .popular-breed-link:hover {
+  color: #345047;
+}
+
+#popular-breeds .popular-breed-link:focus-visible {
+  outline: 2px solid #345047;
+  outline-offset: 4px;
+}
+
+.popular-section {
+  margin: 32px 0;
+  padding: 28px;
+  border: 4px double #ad8950;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #fffdf8, #f2eee5);
+  box-shadow: 0 6px 18px rgba(52, 80, 71, 0.08);
+}
+
+#popular-heading {
+  margin: 0 0 22px;
+  color: #345047;
+  text-align: center;
+}
+
+#popular-breeds {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+}
+
+#popular-breeds .popular-breed-link {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 16px;
+  border: 1px solid #ad8950;
+  border-radius: 10px;
+  background: #fffdf8;
+  color: #333333;
+  text-align: center;
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+#popular-breeds .popular-breed-link:hover {
+  background: #345047;
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 12px rgba(52, 80, 71, 0.18);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #popular-breeds .popular-breed-link {
+    transition: none;
+  }
+
+  #popular-breeds .popular-breed-link:hover {
+    transform: none;
+  }
+}
+
+header.hero {
+  width: 100%;
+  max-width: none;
+  box-sizing: border-box;
+  margin: 0 0 24px;
+  padding: 48px 6%;
+  min-height: 480px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  background-image:
+  linear-gradient(
+    rgba(247, 245, 240, 0.25),
+    rgba(247, 245, 240, 0.25)
+  ),
+  url("images/dog-sunset.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.hero .title-frame {
+  margin: 0;
+  background: rgba(255, 253, 248, 0.94);
+}
+
+.tagline {
+  text-align: center;
+  padding: 0 16px;
+}
+
+@media (max-width: 600px) {
+  header.hero {
+    min-height: 560px;
+    padding: 24px 16px;
+    align-items: flex-end;
+    justify-content: center;
+    background-position: 75% center;
+  }
+
+  .hero .title-frame {
+    padding: 14px 24px;
+  }
+
+  .hero .title-frame h1 {
+    font-size: 40px;
+  }
+
+  .hero .title-frame .edition {
+    font-size: 24px;
+  }
+}
